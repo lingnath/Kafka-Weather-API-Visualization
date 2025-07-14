@@ -1,6 +1,10 @@
 # Kafka-Weather-API-Visualization
 This project streams real-time weather data from Weather API using Kafka. We visualize weather related data on a map.
 
+Below is a data architecture diagram
+<img width="963" height="213" alt="image" src="https://github.com/user-attachments/assets/1a523610-dc8f-4256-99cd-71e0bb145e1d" />
+
+
 ### Limitations
 1. We are collecting data from a publicly available source so security is not at the forefront of this project. For now, the IAM policies are lax. If this were not a personal project, I would have tightened the IAM policies significantly.
 2. The accuracy of this project is based on how many weather stations there are in the area of interest and how frequently the data updates
