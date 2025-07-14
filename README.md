@@ -14,8 +14,8 @@ This project streams real-time weather data from Weather API using Kafka. We vis
 1. Create and/or use an EC2 t2.xlarge instance running on Ubuntu 24.04 with at least 16GB of EBS storage.
 2. Ensure you create or use an existing key pair for login when setting up the EC2 instance
 3. Under security group inbound rules, create or modify a security group with the following:
-  SSH Type (Port 22) from Source as MY IP
-  Port 8888 from Sources as MY IP
+  - SSH Type (Port 22) from Source as MY IP
+  - Port 8888 from Sources as MY IP
 4. Attach this security group to your EC2 instance
 5. Upload the files in this repository into your EC2 folder
 
