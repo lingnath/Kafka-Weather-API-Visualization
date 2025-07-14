@@ -1,0 +1,9 @@
+kafka-python==2.2.15
+requests==2.32.4
+boto3==1.39.4
+pandas==2.3.1
+pyarrow==20.0.0
+python-dotenv==1.1.1
+toml==0.10.2
+plotly==5.3.1
+notebook==7.4.0
