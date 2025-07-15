@@ -7,6 +7,7 @@ from kafka import KafkaProducer
 import os
 from dotenv import load_dotenv
 
+# Get Weather API token to access API
 load_dotenv()
 API_KEY = os.getenv('api_key')
 BASE_URL = "https://api.weatherapi.com/v1/current.json"
