@@ -52,6 +52,7 @@ consumer = KafkaConsumer(
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
 
+# List that collects the weather data
 buffer = []
 last_write_time = datetime.utcnow()
 
