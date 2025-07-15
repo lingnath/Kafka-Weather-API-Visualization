@@ -11,6 +11,7 @@ import boto3
 from dotenv import load_dotenv
 import toml
 
+# Configuring parameters
 load_dotenv()
 ACCESS_KEY = os.getenv('ACCESS_KEY')
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -18,6 +19,7 @@ app_config = toml.load('config_file.toml')
 S3_BUCKET = app_config['aws']['bucket_name']
 aws_region = app_config['aws']['aws_region']
 
+# Connect to S3
 session = boto3.Session(
     aws_access_key_id=ACCESS_KEY,
     aws_secret_access_key=SECRET_KEY
