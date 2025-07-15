@@ -1,4 +1,3 @@
-# consumer/consumer.py
 import json
 import pandas as pd
 from io import BytesIO
