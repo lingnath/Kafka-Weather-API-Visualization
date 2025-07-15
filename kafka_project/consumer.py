@@ -26,16 +26,14 @@ session = boto3.Session(
 )
 s3_client = session.client('s3')
 
-# Graceful shutdown flag
-running = True
-
 def upload_fileobj(bucket, key, file_obj):
     '''Upload Weather data to S3'''
     file_obj.seek(0)
     s3_client.upload_fileobj(file_obj, bucket, key)
 
+running = True
 def signal_handler(sig, frame):
-    
+    '''Gracefully shutdown function if this script terminates'''
     global running
     print("\n[Consumer] Shutdown signal received. Preparing to exit...")
     running = False
