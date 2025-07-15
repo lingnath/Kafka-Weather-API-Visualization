@@ -60,31 +60,38 @@ print("Starting Kafka consumer...")
 
 try:
     while running:
-        # Poll Kafka every 1 second
+        # Infinite loop. Only when we manually terminate this script do we exit this loop
+        
+        # Poll Kafka every 1 second from topic
         records = consumer.poll(timeout_ms=1000)
         
         if not records:
             print('Records do not exist')
 
+        # Store weather related data
         for topic_partition, messages in records.items():
             print(f'Records exist. There are {len(messages)} records to process.')
             for message in messages:
                 buffer.append(message.value)
-            # print(message.value)
 
         now = datetime.utcnow()
+
+        # Upload to S3 every 5 minutes only if there is data collected from topic
         if (now - last_write_time) >= timedelta(minutes=5):
             if buffer:
                 df = pd.DataFrame(buffer)
-                # df.to_csv('test_data.csv', index=False)
                 parquet_buffer = BytesIO()
+                # Convert dataframe to Parquet
                 df.to_parquet(parquet_buffer, index=False)
 
+                # Create S3 path partitioned by date
                 s3_path = f"{now.year}/{now.month:02}/{now.day:02}/weather_{now.strftime('%H%M%S')}.parquet"
 
                 print(f"Uploading {len(buffer)} records to s3://{S3_BUCKET}/{s3_path}")
+                # Upload Parquet file to S3
                 upload_fileobj(S3_BUCKET, s3_path, parquet_buffer)
 
+                # Clear data to prevent uploading duplicate data
                 buffer.clear()
                 last_write_time = now
 
@@ -97,11 +104,10 @@ except Exception as e:
 finally:
     print("[Consumer] Shutting down...")
 
-    # Final S3 upload of any remaining buffer
+    # Final S3 upload of any remaining weather data once we terminate the script
     if buffer:
         print(f"[Consumer] Uploading remaining {len(buffer)} records before shutdown...")
         df = pd.DataFrame(buffer)
-        # df.to_csv('test_data.csv', index=False, mode='a')
         parquet_buffer = BytesIO()
         df.to_parquet(parquet_buffer, index=False)
 
