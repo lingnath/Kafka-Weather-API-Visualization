@@ -7,6 +7,7 @@ Below is a data architecture diagram
 ### Limitations
 1. We are collecting data from a publicly available source so security is not at the forefront of this project. For now, the IAM policies are lax. If this were not a personal project, I would have tightened the IAM policies significantly.
 2. The accuracy of this project is based on how many weather stations there are in the area of interest and how frequently the data updates
+3. Due to the limitations of the free tier API and having to leave an EC2 instance running, I only collected data for 2 hours. It would take weeks of continuous data collection to obtain any meaningful weather trends and insights.
 
 ## AWS Account
 1. Create AWS account
