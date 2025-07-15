@@ -3,6 +3,7 @@ import boto3
 from dotenv import load_dotenv
 import toml
 
+# Set parameters to create S3 bucket that will store the Weather API data we collected
 load_dotenv()
 ACCESS_KEY = os.getenv('ACCESS_KEY')
 SECRET_KEY = os.getenv('SECRET_KEY')
