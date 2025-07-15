@@ -35,8 +35,9 @@ def frange(start, stop, step):
         yield round(start, 2)
         start += step
 
-try:
+try: 
     while running:
+        # Infinite loop. Only when we manually terminate this script do we exit this loop
         start_time = time.time()
         print("Starting new grid scan...")
         for lat in frange(49.0, 50.0, 0.1):
