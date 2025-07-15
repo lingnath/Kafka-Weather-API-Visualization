@@ -5,7 +5,6 @@ sudo apt-get update
 sudo apt-get install python3.12 -y
 # Install other packages
 sudo apt-get install pip -y
-sudo apt-get install zip -y
 # Install and activate Python venv
 sudo apt install python3.12-venv
 python3 -m venv python_env
