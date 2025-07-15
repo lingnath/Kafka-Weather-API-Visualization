@@ -7,6 +7,13 @@ from kafka import KafkaProducer
 import os
 from dotenv import load_dotenv
 
+'''
+1. Sends API request to Weather API.
+2. Collects weather data (eg. humidity, temperature, UV index, wind speed) for each coordinate in increments of 0.1 in the Greater Vancouver area
+3. Sends data to a Kafka topic
+4. Repeat 1-3 until we manually terminate this script
+'''
+
 # Get Weather API token to access API
 load_dotenv()
 API_KEY = os.getenv('api_key')
