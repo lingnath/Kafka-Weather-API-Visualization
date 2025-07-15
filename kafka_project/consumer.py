@@ -11,6 +11,13 @@ import boto3
 from dotenv import load_dotenv
 import toml
 
+'''
+1. Poll from Kafka topic
+2. Collect any data polled
+3. Save data to Parquet file
+4. Upload Parquet file to S3 every 5 minutes
+'''
+
 # Configuring parameters
 load_dotenv()
 ACCESS_KEY = os.getenv('ACCESS_KEY')
