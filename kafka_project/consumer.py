@@ -16,6 +16,7 @@ import toml
 2. Collect any data polled
 3. Save data to Parquet file
 4. Upload Parquet file to S3 every 5 minutes
+5. Repeat 1-4 until we manually terminate this script
 '''
 
 # Configuring parameters
