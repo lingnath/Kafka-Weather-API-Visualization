@@ -23,6 +23,11 @@ Below is a data architecture diagram
 4. Attach this security group to your EC2 instance
 5. Upload the files in this repository into your EC2 folder
 
+## Weather API Token
+1. Go to https://www.weatherapi.com/
+2. You will need to sign up to obtain the Weather API token
+3. Once you sign up and login, copy the API key and paste it into the .env file that I will provide in instructions below
+
 ## Software Installations
 1. Go to ```Software_Installations``` folder
 2. Run the following in bash
@@ -37,7 +42,7 @@ chmod +x install_packages.sh
 1. Go to ```kafka_project``` folder
 2. Create a .env file with the following:
 ```env
-api_key=
+api_key={'Weather API token'}
 ACCESS_KEY=
 SECRET_KEY=
 ```
