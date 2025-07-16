@@ -12,7 +12,8 @@ Below is a data architecture diagram
 ## AWS Account
 1. Create AWS account
 2. Create IAM user with following policies attached ```AmazonS3FullAccess```
-3. Create an access key for this user
+3. Create an access key and secret access key for this user
+4. You will paste this into the .env file that I will provide in instructions below
 
 ## EC2
 1. Create and/or use an EC2 t2.xlarge instance running on Ubuntu 24.04 with at least 16GB of EBS storage.
