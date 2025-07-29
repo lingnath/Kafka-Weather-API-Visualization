@@ -11,7 +11,7 @@ Below is a data architecture diagram
 
 ## AWS Account
 1. Create AWS account
-2. Create IAM user with following policies attached ```AmazonS3FullAccess```
+2. Create IAM user with following policies attached: ```AmazonS3FullAccess```
 3. Create an access key and secret access key for this user
 4. You will paste this into the .env file that I will provide in instructions below
 
@@ -22,7 +22,7 @@ Below is a data architecture diagram
   - SSH Type (Port 22) from Source as MY IP
   - Port 8888 from Sources as MY IP
 4. Attach this security group to your EC2 instance
-5. Upload the files in this repository into your EC2 folder
+5. Run ```https://github.com/lingnath/Kafka-Weather-API-Visualization.git``` to upload the files in this repository into your EC2 folder
 
 ## Weather API Token
 1. Go to https://www.weatherapi.com/
@@ -51,21 +51,21 @@ SECRET_KEY=
 4. Fill in the ```config_file.toml``` accordingly as well
 5. Run ```docker exec -it kafka bash```
 6. Inside the Docker kafka container, run ```kafka-topics --create --topic weather-data --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1``` to create the Kafka topic
-7. Run ```source /home/ubuntu/Software_Installations/python_env/bin/activate``` to start venv
+7. Run ```source /home/ubuntu/Kafka-Weather-API-Visualization/Software_Installations/python_env/bin/activate``` to start venv
 8. After exiting the Docker kafka container, run ```python3 create_s3_buckets.py``` to create the S3 bucket that will store the streaming data
 
 ## Running Kafka
 1. Go to ```kafka_project``` folder if you haven't done so already
 2. Run ```docker-compose up -d``` to spin up Kafka
-3. If you haven't done so already, run ```source /home/ubuntu/Software_Installations/python_env/bin/activate``` to start venv
+3. If you haven't done so already, run ```source /home/ubuntu/Kafka-Weather-API-Visualization/Software_Installations/python_env/bin/activate``` to start venv
 4. After waiting for about 1 minute or so for Kafka to start, run ```python3 producer.py```
-5. In another terminal, run ```source /home/ubuntu/Software_Installations/python_env/bin/activate``` again
+5. In another terminal, run ```source /home/ubuntu/Kafka-Weather-API-Visualization/Software_Installations/python_env/bin/activate``` again
 6. Then in this other terminal, run ```python3 consumer.py```
 7. Because streaming happens until the end of time, you will need to stop the producer and consumer manually. To do so, press ```Ctrl+C``` for either of them to stop the tasks
 8. Once you are done, run ```docker-compose stop```
 
 ## Visualizing Data
 1. Go to ```kafka_project``` folder if you haven't done so already
-2. If you haven't done so already, run ```source /home/ubuntu/Software_Installations/python_env/bin/activate``` to start venv
+2. If you haven't done so already, run ```source /home/ubuntu/Kafka-Weather-API-Visualization/Software_Installations/python_env/bin/activate``` to start venv
 3. Run ```jupyter notebook``` to start Jupyter Notebook. You should see a link to LocalHost in the terminal. Click on that link
 4. Begin visualizing data on ```visualize_data.ipynb```
