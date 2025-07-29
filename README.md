@@ -22,7 +22,7 @@ Below is a data architecture diagram
   - SSH Type (Port 22) from Source as MY IP
   - Port 8888 from Sources as MY IP
 4. Attach this security group to your EC2 instance
-5. Run ```git clone https://github.com/lingnath/Kafka-Weather-API-Visualization.git``` to upload the files in this repository into your EC2 folder
+5. In ```/home/ubuntu/``` folder, run ```git clone https://github.com/lingnath/Kafka-Weather-API-Visualization.git``` to upload the files in this repository into your EC2 folder
 
 ## Weather API Token
 1. Go to https://www.weatherapi.com/
